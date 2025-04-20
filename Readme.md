@@ -7,10 +7,22 @@
 # Setting up of Backend APIs
 - Implemented below set of APIs
   - Auth Controller
+    - /api/auth/login
+    - /api/auth/signup
   - Tool Controller
+    - /api/tools
+    - /api/tools
+    - /api/tools/1
   - Reservation Controller
+    - /api/reservations
+    - /api/reservations/my
+    - /api/reservations/user/2
   - Review Controller
+    - /api/reviews
+    - /api/reviews/1
   - Damage Report Controller
+    - /api/reports
+    - /api/reports/1
 
 ## How to run the backend?
 - .env file has the DB connection details and database(tool_library_db) to connect
