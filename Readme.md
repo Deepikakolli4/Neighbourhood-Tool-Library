@@ -25,12 +25,6 @@
     - /api/reports
     - /api/reports/1
 
-  - ![Login API](docs/images/api/login_api.png)
-  - ![Get all tools API](docs/images/api/get_all_tools_api.png)
-  - ![Reservation API](docs/images/api/reservations_api.png)
-  - ![Review API](docs/images/api/review_api.png)
-  - ![Submit Damage Report API](docs/images/api/submit_damage_report.png)
-
 ## How to run the backend?
 - .env file has the DB connection details and database(tool_library_db) to connect
 - The below command will run the backend at 5000 port
@@ -42,3 +36,8 @@
   PostmanCollection/Neighborhood-Backend-API-Collection.json to easily exercise
   backend API and validate the response
 - ![Neighborhood Postman backend API collection](docs/images/postman_collection.png)
+  - ![Login API](docs/images/api/login_api.png)
+  - ![Get all tools API](docs/images/api/get_all_tools_api.png)
+  - ![Reservation API](docs/images/api/reservations_api.png)
+  - ![Review API](docs/images/api/review_api.png)
+  - ![Submit Damage Report API](docs/images/api/submit_damage_report.png)
