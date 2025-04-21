@@ -9,19 +9,37 @@ const ToolCard = ({ tool }) => {
   };
 
   return (
-    <div
-      className="border rounded-lg p-4 shadow hover:shadow-lg cursor-pointer transition"
-      onClick={handleClick}
-    >
-      <h3 className="text-lg font-bold mb-2">{tool.name}</h3>
-      <p className="text-gray-600 mb-1">{tool.description.slice(0, 100)}...</p>
-      <p className="text-sm text-gray-400">Category: {tool.category}</p>
-      <p className="text-sm text-gray-500">
-        Status:{' '}
-        <span className={tool.available ? 'text-green-600' : 'text-red-600'}>
-          {tool.available ? 'Available' : 'Unavailable'}
-        </span>
-      </p>
+    <div className="card h-100 shadow-sm cursor-pointer" onClick={handleClick} style={{ cursor: 'pointer' }}>
+      {tool.image_url && (
+        <img
+          src={tool.image_url}
+          alt={tool.name}
+          className="card-img-top"
+          onError={(e) => {
+            e.target.onerror = null;
+            // e.target.src = '/images/default-tool.jpg'; // Optional fallback
+            console.log(e);
+          }}
+          style={{ objectFit: 'cover', height: '200px' }}
+        />
+      )}
+      <div className="card-body">
+        <h5 className="card-title">{tool.name}</h5>
+        <p className="card-text">
+          {tool.description.length > 100
+            ? `${tool.description.slice(0, 100)}...`
+            : tool.description}
+        </p>
+        <p className="text-muted mb-1"><small>Category: {tool.category}</small></p>
+        <p className="mb-0">
+          <small>
+            Status:{' '}
+            <span className={tool.available ? 'text-success' : 'text-danger'}>
+              {tool.available ? 'Available' : 'Unavailable'}
+            </span>
+          </small>
+        </p>
+      </div>
     </div>
   );
 };

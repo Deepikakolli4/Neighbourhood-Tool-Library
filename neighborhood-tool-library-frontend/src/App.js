@@ -1,6 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';  // Import Navigate here
+import Layout from './components/Layout';
 import LoginPage from './components/auth/LoginPage';
 import RegisterPage from './components/auth/RegisterPage';
 // import Dashboard from './components/Dashboard';
@@ -14,6 +16,7 @@ import AdminPanel from './pages/AdminPanel';
 const App = () => {
   return (
     <Router>
+      <Layout>
       <Routes>
         {/* Public Routes */}
         <Route path="/auth/login" element={<LoginPage />} />
@@ -30,6 +33,7 @@ const App = () => {
         {/* Default Route */}
         <Route path="/" element={<Navigate to="/auth/login" />} />
       </Routes>
+      </Layout>
     </Router>
   );
 }
