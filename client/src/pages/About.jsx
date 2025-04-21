@@ -1,39 +1,55 @@
-// src/pages/About.js
-import React from 'react';
+import React, { useState } from 'react';
+import './About.css';
+import toolImage1 from '../assets/tool1.png';
+import toolImage2 from '../assets/tool2.png';
+import toolImage3 from '../assets/tool3.png';
+
+const images = [
+  { src: toolImage1, alt: 'Tool Library 1' },
+  { src: toolImage2, alt: 'Tool Library 2' },
+  { src: toolImage3, alt: 'Tool Library 3' },
+];
 
 const About = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+  };
+
   return (
-    <div className="container mt-5">
-      <h1>About Neighborhood Tool Library</h1>
-      <p>
-        The Neighborhood Tool Library is a community-driven platform that allows
-        local residents to borrow tools and equipment for personal use. Our goal is
-        to make high-quality tools easily accessible while reducing the need for
-        individuals to purchase expensive equipment they only need occasionally.
-      </p>
-      <h2>Mission</h2>
-      <p>
-        Our mission is to promote sustainability, cost-effectiveness, and community
-        cooperation. By sharing tools, we aim to reduce waste and foster a culture of
-        sharing within local neighborhoods.
-      </p>
-      <h2>How It Works</h2>
-      <p>
-        <strong>1. Browse Tools:</strong> Browse our catalog of tools available for borrowing.
-      </p>
-      <p>
-        <strong>2. Reserve Tools:</strong> Select the tool you need, pick your reservation dates, and confirm your booking.
-      </p>
-      <p>
-        <strong>3. Pickup/Return:</strong> Pick up the tool from a designated location, use it for the reserved time, and return it when done.
-      </p>
-      <p>
-        <strong>4. Report Damage:</strong> If a tool is damaged, report it via the platform to help us keep everything in good condition.
-      </p>
-      <h2>Join Us</h2>
-      <p>
-        Become a member of the Neighborhood Tool Library today and start borrowing tools! It’s free to join, and you’ll have access to a wide range of equipment that can make your life easier.
-      </p>
+    <div className="aboutus-container">
+      <div className="aboutus-text-section">
+        <h2 className="aboutus-title">About Our Tool Library</h2>
+        <p className="aboutus-text">
+          The Neighborhood Tool Library is a community-driven platform where neighbors can share and borrow tools. 
+          Whether it's gardening, repairing, or DIY projects — we believe in reducing waste, saving money, and building trust through shared resources.
+        </p>
+      </div>
+      <div className="aboutus-carousel">
+        <div className="carousel">
+          <button className="carousel-btn prev" onClick={goToPrevious}>&#10094;</button>
+          <img
+            src={images[currentIndex].src}
+            alt={images[currentIndex].alt}
+            className="aboutus-image"
+          />
+          <button className="carousel-btn next" onClick={goToNext}>&#10095;</button>
+        </div>
+        <div className="carousel-dots">
+          {images.map((_, index) => (
+            <span
+              key={index}
+              className={`dot ${index === currentIndex ? 'active' : ''}`}
+              onClick={() => setCurrentIndex(index)}
+            ></span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
