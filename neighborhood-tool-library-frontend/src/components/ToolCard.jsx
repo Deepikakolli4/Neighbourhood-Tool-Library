@@ -34,8 +34,9 @@ const ToolCard = ({ tool }) => {
         <p className="mb-0">
           <small>
             Status:{' '}
+
             <span className={tool.available ? 'text-success' : 'text-danger'}>
-              {tool.available ? 'Available' : 'Unavailable'}
+              {tool.available}
             </span>
           </small>
         </p>

@@ -31,13 +31,25 @@ const ToolDetail = () => {
   return (
     <div className="container py-4">
       <div className="card mb-4">
+      {tool.image_url && (
+        <img
+          src={tool.image_url}
+          alt={tool.name}
+          className="card-img-top"
+          onError={(e) => {
+            e.target.onerror = null;
+            // e.target.src = '/images/default-tool.jpg'; // Optional fallback
+          }}
+          style={{ objectFit: 'cover', height: '400px' }}
+        />
+      )}
         <div className="card-body">
           <h2 className="card-title">{tool.name}</h2>
           <p className="card-text">{tool.description}</p>
           <p className="card-text">
             <strong>Available:</strong>{' '}
             <span className={tool.available ? 'text-success' : 'text-danger'}>
-              {tool.available ? 'Yes' : 'No'}
+              {tool.available}
             </span>
           </p>
         </div>
