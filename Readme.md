@@ -1,5 +1,5 @@
 # Project Demo
-![Project Demo](https://youtu.be/xmX1V9_rNPw)
+[Watch Project Demo](https://youtu.be/xmX1V9_rNPw)
 
 # Setting up of DB(PostgreSQL)
 - Install PostgreSQL from https://www.postgresql.org/download/windows/
