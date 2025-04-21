@@ -1,6 +1,6 @@
 # Project Demo
-[Watch Project Demo](https://youtu.be/xmX1V9_rNPw)
-[API Testing Demo Vide](https://youtu.be/s79nCkoTTGU)
+- [Watch Project Demo](https://youtu.be/xmX1V9_rNPw)  
+- [API Testing Demo Video](https://youtu.be/s79nCkoTTGU)
 
 # Setting up of DB(PostgreSQL)
 - Install PostgreSQL from https://www.postgresql.org/download/windows/
