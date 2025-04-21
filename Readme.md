@@ -103,8 +103,9 @@
 - ![Docker up and running](docs/images/docker.png)
 
 # Reflection
-- significant challenge was building a reliable reservation system that prevented overlapping bookings and validated date ranges effectively, especially with considerations like time zones and edge cases (e.g., past dates or partial-day overlaps)
-- On the frontend, achieving a clean, responsive design that displayed real-time availability and clear status indicators proved tricky, particularly when synchronizing data between the calendar view and the reservation backend.
-- Lastly, setting up Docker and running it locally brought its own set of challenges around networking(port mapping), environment configuration, and service orchestration between backend and database instance.
+- Some challenges were faced when building the backend API, such as setting up JWT tokens and persisting them to localStorage. This was resolved with the help of Chrome DevTools (Inspect Tools).
+- Building a reliable reservation system that prevented overlapping bookings was also challenging, especially when considering time zones and edge cases (e.g., past dates or partial-day overlaps).
+- On the frontend, achieving a clean, responsive design that displayed real-time availability and clear status indicators proved tricky, particularly when handling overdue reservations in the UI.
+- Lastly, setting up Docker and running it locally brought its own set of challenges related to networking (port mapping), environment configuration, and service orchestration between the backend and the database instance.
 
 
