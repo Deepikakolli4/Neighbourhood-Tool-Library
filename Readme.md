@@ -102,7 +102,7 @@
 - docker-compose up
 - ![Docker up and running](docs/images/docker.png)
 
-# Reflection
+# Learning Reflection
 - Some challenges were faced when building the backend API, such as setting up JWT tokens and persisting them to localStorage. This was resolved with the help of Chrome DevTools (Inspect Tools).
 - Building a reliable reservation system that prevented overlapping bookings was also challenging, especially when considering time zones and edge cases (e.g., past dates or partial-day overlaps).
 - On the frontend, achieving a clean, responsive design that displayed real-time availability and clear status indicators proved tricky, particularly when handling overdue reservations in the UI.
