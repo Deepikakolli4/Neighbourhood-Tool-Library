@@ -27,29 +27,43 @@ const Dashboard = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="container text-center py-5">
+        <div className="spinner-border text-primary" role="status" />
+        <p className="mt-2">Loading your tools...</p>
+      </div>
+    );
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return (
+      <div className="container text-center py-5">
+        <div className="alert alert-danger">{error}</div>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <h2>Dashboard</h2>
-      <h3>Your Tools</h3>
-      <ul>
-        {tools.length === 0 ? (
-          <li>No tools available</li>
-        ) : (
-          tools.map((tool) => (
-            <li key={tool.id}>
-              <h4>{tool.name}</h4>
-              <p>{tool.description}</p>
-            </li>
-          ))
-        )}
-      </ul>
+    <div className="container py-4">
+      <h2 className="mb-4">Dashboard</h2>
+      <h4 className="mb-3">Your Tools</h4>
+
+      {tools.length === 0 ? (
+        <div className="alert alert-info">No tools available</div>
+      ) : (
+        <div className="row">
+          {tools.map((tool) => (
+            <div className="col-md-6 col-lg-4 mb-4" key={tool.id}>
+              <div className="card h-100">
+                <div className="card-body">
+                  <h5 className="card-title">{tool.name}</h5>
+                  <p className="card-text">{tool.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
