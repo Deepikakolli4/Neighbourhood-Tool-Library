@@ -1,19 +1,49 @@
 const pool = require('../config/db');
 
+
 exports.getAllTools = async (req, res) => {
-  const { category, available } = req.query;
-  let query = 'SELECT * FROM tools';
+  const { category } = req.query;
+  let query = `
+    SELECT * FROM tools
+  `;
   const params = [];
+  const conditions = [];
 
   if (category) {
     params.push(category);
-    query += ` WHERE category = $${params.length}`;
+    conditions.push(`category = $${params.length}`);
   }
 
-  // Optional: Add availability logic here
+  if (conditions.length > 0) {
+    query += ` WHERE ` + conditions.join(' AND ');
+  }
 
-  const result = await pool.query(query, params);
-  res.json(result.rows);
+  try {
+    const result = await pool.query(query, params);
+    const tools = result.rows;
+
+    // For each tool, check availability based on the reservations
+    const toolsWithAvailability = await Promise.all(tools.map(async (tool) => {
+      const availabilityQuery = `
+        SELECT * FROM reservations
+        WHERE tool_id = $1 AND status IN ('pending', 'active')
+        AND start_date <= CURRENT_DATE AND end_date >= CURRENT_DATE
+      `;
+      const availabilityResult = await pool.query(availabilityQuery, [tool.id]);
+
+      const available = availabilityResult.rows.length === 0 ? 'Available' : 'Unavailable';
+
+      return {
+        ...tool,
+        available,
+      };
+    }));
+
+    res.json(toolsWithAvailability);
+  } catch (err) {
+    console.error('Error fetching tools:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 };
 
 exports.getToolById = async (req, res) => {

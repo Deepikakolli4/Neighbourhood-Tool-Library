@@ -11,6 +11,7 @@ import ToolCatalog from './pages/ToolCatalog';
 import ToolDetail from './pages/ToolDetail';
 import ReservationsDashboard from './pages/ReservationsDashboard';
 import AdminPanel from './pages/AdminPanel';
+import About from './pages/About';
 // import ReviewSection from './components/ReviewSection';
 
 const App = () => {
@@ -21,7 +22,7 @@ const App = () => {
         {/* Public Routes */}
         <Route path="/auth/login" element={<LoginPage />} />
         <Route path="/auth/register" element={<RegisterPage />} />
-
+        <Route path="/about" element={<About />} />
 
         {/* Protected Routes */}
         {/* <Route path="/dashboard" element={<ProtectedRoute component={Dashboard} />} /> */}
