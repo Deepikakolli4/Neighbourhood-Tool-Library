@@ -102,4 +102,9 @@
 - docker-compose up
 - ![Docker up and running](docs/images/docker.png)
 
+# Reflection
+- significant challenge was building a reliable reservation system that prevented overlapping bookings and validated date ranges effectively, especially with considerations like time zones and edge cases (e.g., past dates or partial-day overlaps)
+- On the frontend, achieving a clean, responsive design that displayed real-time availability and clear status indicators proved tricky, particularly when synchronizing data between the calendar view and the reservation backend.
+- Lastly, setting up Docker and running it locally brought its own set of challenges around networking(port mapping), environment configuration, and service orchestration between backend and database instance.
+
 
