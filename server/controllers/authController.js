@@ -13,14 +13,13 @@ exports.register = async (req, res) => {
     );
     res.status(201).json({ user: result.rows[0] });
   } catch (err) {
-    res.status(500).json({ error: 'Registration failed' });
+    res.status(500).json({ error: `Registration failed ${err}` });
   }
 };
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
   console.log(email);
-  console.log(password);
   try {
     const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
     const user = result.rows[0];
@@ -35,7 +34,7 @@ exports.login = async (req, res) => {
 
     res.json({ token });
   } catch (err) {
-    res.status(500).json({ error: 'Login failed' });
+    res.status(500).json({ error: `Login failed ${err}` });
   }
 };
 

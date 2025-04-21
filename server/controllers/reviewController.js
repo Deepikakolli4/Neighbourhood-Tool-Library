@@ -12,7 +12,7 @@ exports.createReview = async (req, res) => {
 
     res.status(201).json(result.rows[0]);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to post review' });
+    res.status(500).json({ error: `Failed to post review ${err}` });
   }
 };
 

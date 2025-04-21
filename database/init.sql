@@ -1,6 +1,12 @@
 
 -- https://bcrypt-generator.com/
-CREATE DATABASE tool_library_db;
+
+ALTER SYSTEM SET log_statement = 'all';
+ALTER SYSTEM SET logging_collector = on;
+ALTER SYSTEM SET log_directory = '/var/log/postgresql';
+ALTER SYSTEM SET log_filename = 'postgresql.log';
+
+-- CREATE DATABASE tool_library_db;
 
 -- Drop tables if they already exist (for reset)
 DROP TABLE IF EXISTS Reviews, DamageReports, Reservations, Tools, Users CASCADE;
@@ -54,7 +60,7 @@ CREATE TABLE Reviews (
 
 -- Insert sample users
 INSERT INTO Users (name, email, password_hash, role) VALUES
-('Alice Johnson', 'alice@example.com', '$2a$12$6x93NE29tfWPlts2E4h21eeRC1W7Fl6QrQe4/UnNQpPL.au6rFhxu', 'admin'),  -- password1
+('Deepika', 'deepika@gmail.com', '$2a$12$6x93NE29tfWPlts2E4h21eeRC1W7Fl6QrQe4/UnNQpPL.au6rFhxu', 'admin'),  -- password1
 ('Bob Smith', 'bob@example.com', '$2a$12$bBVQ63UMfzHV7A4lxjpzheqvZT2t2FPJjyrSM.o0ZnQbofOLvxZj2', 'member'), -- password2
 ('Charlie Rose', 'charlie@example.com', '$2a$12$p9w0xrw4JpWSF6/mf21LxOAtIvB/hXw2/h83h/cOU6jDHLwQADBWu', 'member'); -- password3
 

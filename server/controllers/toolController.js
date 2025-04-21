@@ -42,7 +42,7 @@ exports.getAllTools = async (req, res) => {
     res.json(toolsWithAvailability);
   } catch (err) {
     console.error('Error fetching tools:', err);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: `Internal server error ${err}` });
   }
 };
 
@@ -72,7 +72,7 @@ exports.getToolById = async (req, res) => {
     });
   } catch (err) {
     console.error('Error fetching tool:', err);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: `Internal server error ${err}` });
   }
 };
 
