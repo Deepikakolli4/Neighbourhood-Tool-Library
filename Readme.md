@@ -30,7 +30,7 @@
 - .env file has the DB connection details and database(tool_library_db) to connect
 - The below command will run the backend at 5000 port
   - `npm run dev`
-- ![Start backend](docs/images/start_backend.png)
+  - ![Start backend](docs/images/start_backend.png)
 
 ## How to test backend API?
 - Used postman and create a API collection in
@@ -42,6 +42,10 @@
   - ![Reservation API](docs/images/api/reservations_api.png)
   - ![Review API](docs/images/api/review_api.png)
   - ![Submit Damage Report API](docs/images/api/submit_damage_report.png)
+
+## Swagger documentation for backend API
+- Swagger documentation is available at `http://localhost:5000/api-docs/`
+  - ![Login API](docs/images/api/swagger_api.png)
 
 # Setting up of Frontend
 ## Frontend overview
@@ -60,7 +64,7 @@
 ## How to run the frontend?
 - The below command will run the frontend at 3000 port
   - `npm start`
-- ![Start frontend](docs/images/start_frontend.png)
+  - ![Start frontend](docs/images/start_frontend.png)
 
 ## How to test frontend?
 

@@ -1,0 +1,216 @@
+openapi: 3.0.0
+info:
+  title: Neighborhood Tool Library API
+  version: 1.0.0
+  description: API documentation for the Neighborhood Tool Library project
+
+servers:
+  - url: http://localhost:5000
+
+tags:
+  - name: Auth
+  - name: Tools
+  - name: Reservations
+  - name: Reviews
+  - name: Damage Reports
+
+paths:
+  /api/auth/login:
+    post:
+      tags: [Auth]
+      summary: Login with email and password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Logged in successfully
+        '401':
+          description: Invalid credentials
+
+  /api/auth/signup:
+    post:
+      tags: [Auth]
+      summary: Sign up with email and password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '201':
+          description: User registered successfully
+
+  /api/tools:
+    get:
+      tags: [Tools]
+      summary: Get all tools
+      responses:
+        '200':
+          description: List of tools
+    post:
+      tags: [Tools]
+      summary: Add a new tool
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                category:
+                  type: string
+                image_url:
+                  type: string
+      responses:
+        '201':
+          description: Tool added
+
+  /api/tools/{id}:
+    get:
+      tags: [Tools]
+      summary: Get tool by ID
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Tool found
+
+  /api/reservations:
+    post:
+      tags: [Reservations]
+      summary: Create a new reservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tool_id:
+                  type: integer
+                start_date:
+                  type: string
+                  format: date
+                end_date:
+                  type: string
+                  format: date
+      responses:
+        '201':
+          description: Reservation created
+
+  /api/reservations/my:
+    get:
+      tags: [Reservations]
+      summary: Get my reservations
+      responses:
+        '200':
+          description: List of user's reservations
+
+  /api/reservations/user/{id}:
+    get:
+      tags: [Reservations]
+      summary: Get reservations by user ID
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: List of reservations
+
+  /api/reviews:
+    post:
+      tags: [Reviews]
+      summary: Submit a review
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tool_id:
+                  type: integer
+                rating:
+                  type: integer
+                comment:
+                  type: string
+      responses:
+        '201':
+          description: Review submitted
+
+  /api/reviews/{id}:
+    get:
+      tags: [Reviews]
+      summary: Get reviews for a tool
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: List of reviews
+
+  /api/reports:
+    post:
+      tags: [Damage Reports]
+      summary: Submit a damage report
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tool_id:
+                  type: integer
+                description:
+                  type: string
+                image_url:
+                  type: string
+      responses:
+        '201':
+          description: Report submitted
+
+  /api/reports/{id}:
+    patch:
+      tags: [Damage Reports]
+      summary: Resolve a damage report
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Report resolved
