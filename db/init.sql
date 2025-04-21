@@ -1,6 +1,6 @@
 
 -- https://bcrypt-generator.com/
--- CREATE DATABASE tool_library_db;
+CREATE DATABASE tool_library_db;
 
 -- Drop tables if they already exist (for reset)
 DROP TABLE IF EXISTS Reviews, DamageReports, Reservations, Tools, Users CASCADE;
