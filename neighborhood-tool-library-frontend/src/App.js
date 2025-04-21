@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';  // Import Navigate here
 import LoginPage from './components/auth/LoginPage';
 import RegisterPage from './components/auth/RegisterPage';
-import Dashboard from './components/Dashboard';
+// import Dashboard from './components/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import ToolCatalog from './pages/ToolCatalog';
 import ToolDetail from './pages/ToolDetail';
