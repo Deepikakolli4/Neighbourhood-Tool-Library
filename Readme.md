@@ -68,4 +68,35 @@
   - ![Start frontend](docs/images/start_frontend.png)
 
 ## How to test frontend?
+- Exercised User Authentication & Roles
+  - ![User Login](docs/images/front_end_testing/user_login.png)
+- Exercised Tool Inventory
+  - ![Tool Inventory](docs/images/front_end_testing/tool_inventory.png)
+  - ![Tool Inventory Filters](docs/images/front_end_testing/filters.png)
+  - ![Tool Inventory Category Filter](docs/images/front_end_testing/category_filter.png)
+  - ![Tool Details](docs/images/front_end_testing/tool_details.png)
+- Exercised Reservation System
+  - Booking Reservations
+  - ![Tool Reservation](docs/images/front_end_testing/reservation.png)
+  - ![Reservation Table Update](docs/images/front_end_testing/reservation_db_update.png)
+  - Listing existing reservations(Including multiple reservations)
+  - ![Existing Reservations](docs/images/front_end_testing/existing_reservations.png)
+  - ![Multiple Reservations](docs/images/front_end_testing/multiple_reservations.png)
+  - Cancelling existing reservations
+- Included an About page
+
+
+# Deployment in to Docker
+- Authored `docker-compose.yml` which orchestrates the below two Dockerfiles
+  - src/client/Dockerfile
+  - src/server/Dockerfile
+  - `docker-compose.yml` defines three services
+  - 1. server - Application backend
+  - 2. client - Application frontend
+  - 3. db - isolated PostgreSql DB instance
+- docker-compose down -v
+- docker-compose build
+- docker-compose up
+- ![Docker up and running](docs/images/docker.png)
+
 
