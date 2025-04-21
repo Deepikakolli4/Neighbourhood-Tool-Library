@@ -40,7 +40,7 @@ const ToolDetail = () => {
             e.target.onerror = null;
             // e.target.src = '/images/default-tool.jpg'; // Optional fallback
           }}
-          style={{ objectFit: 'cover', height: '400px' }}
+          style={{ objectFit: 'cover', height: '400px', width: '400px' }}
         />
       )}
         <div className="card-body">

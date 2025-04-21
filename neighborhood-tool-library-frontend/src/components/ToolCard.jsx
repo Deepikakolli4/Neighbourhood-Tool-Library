@@ -20,7 +20,7 @@ const ToolCard = ({ tool }) => {
             // e.target.src = '/images/default-tool.jpg'; // Optional fallback
             console.log(e);
           }}
-          style={{ objectFit: 'cover', height: '200px' }}
+          style={{ objectFit: 'cover', height: '200px', width: '200px' }}
         />
       )}
       <div className="card-body">
