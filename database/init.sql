@@ -66,9 +66,10 @@ INSERT INTO Users (name, email, password_hash, role) VALUES
 
 -- Insert sample tools
 INSERT INTO Tools (name, description, category, image_url) VALUES
-('Power Drill', 'Cordless power drill with multiple speed settings', 'Power Tools', 'https://example.com/images/drill.jpg'),
-('Lawn Mower', 'Electric lawn mower with 20-inch deck', 'Garden Tools', 'https://example.com/images/mower.jpg'),
-('Hammer', '16 oz claw hammer with rubber grip', 'Hand Tools', 'https://example.com/images/hammer.jpg');
+('Power Drill', 'Cordless power drill with multiple speed settings', 'Power Tools', 'https://images.thdstatic.com/productImages/64a4c91c-622c-42a1-8313-7e408f604491/svn/milwaukee-power-drills-3601-22ct-64_400.jpg'),
+('Lawn Mower', 'Electric lawn mower with 20-inch deck', 'Garden Tools', 'https://images.thdstatic.com/productImages/0efa3434-9aae-4daf-9210-579a7d181f63/svn/ryobi-electric-push-mowers-ryac130-s-64_600.jpg'),
+('Hammer', '16 oz claw hammer with rubber grip', 'Hand Tools', 'https://images.thdstatic.com/productImages/91878ac1-c3e5-48b3-b864-e3b9c5de58aa/svn/stanley-claw-hammers-stht51457-64_400.jpg'),
+('Hammer', 'Heavy-duty claw hammer for carpentry', 'Hand Tools', 'https://images.thdstatic.com/productImages/e082ae68-0104-466e-b3f9-f5849e074df6/svn/stanley-mallets-stht56144-64_400.jpg');
 
 -- Insert sample reservations
 INSERT INTO Reservations (tool_id, user_id, start_date, end_date, status) VALUES
