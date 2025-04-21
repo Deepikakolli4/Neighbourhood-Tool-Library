@@ -34,6 +34,8 @@ const ToolCard = ({ tool }) => {
         <p className="mb-0">
           <small>
             Status:{' '}
+            {console.log("toolcard")}
+            {console.log(tool)}
 
             <span className={tool.available ? 'text-success' : 'text-danger'}>
               {tool.available}

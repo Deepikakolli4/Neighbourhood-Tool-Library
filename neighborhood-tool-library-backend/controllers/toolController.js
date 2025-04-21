@@ -47,9 +47,35 @@ exports.getAllTools = async (req, res) => {
 };
 
 exports.getToolById = async (req, res) => {
-  const result = await pool.query('SELECT * FROM tools WHERE id = $1', [req.params.id]);
-  res.json(result.rows[0]);
+  try {
+    const toolResult = await pool.query('SELECT * FROM tools WHERE id = $1', [req.params.id]);
+
+    if (toolResult.rows.length === 0) {
+      return res.status(404).json({ error: 'Tool not found' });
+    }
+
+    const tool = toolResult.rows[0];
+
+    // Check if the tool is currently reserved
+    const availabilityQuery = `
+      SELECT * FROM reservations
+      WHERE tool_id = $1 AND status IN ('pending', 'active')
+      AND start_date <= CURRENT_DATE AND end_date >= CURRENT_DATE
+    `;
+    const availabilityResult = await pool.query(availabilityQuery, [tool.id]);
+
+    const available = availabilityResult.rows.length === 0 ? 'Available' : 'Unavailable';
+
+    res.json({
+      ...tool,
+      available,
+    });
+  } catch (err) {
+    console.error('Error fetching tool:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 };
+
 
 exports.createTool = async (req, res) => {
   const { name, description, category, image_url } = req.body;

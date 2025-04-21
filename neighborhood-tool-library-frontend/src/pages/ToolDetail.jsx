@@ -48,6 +48,7 @@ const ToolDetail = () => {
           <p className="card-text">{tool.description}</p>
           <p className="card-text">
             <strong>Available:</strong>{' '}
+            {console.log(tool)}
             <span className={tool.available ? 'text-success' : 'text-danger'}>
               {tool.available}
             </span>
