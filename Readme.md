@@ -4,6 +4,7 @@
 - Install HeidiSQL for managing the DB https://www.heidisql.com/download.php
 - Import DB/database.sql in HeidiSQL to create the tool_library_db database
 - ![Neighborhood Database](docs/images/db.png)
+- ![Neighborhood Database Schema](docs/images/db_schema.png)
 
 # Setting up of Backend
 ## Backend APIs
