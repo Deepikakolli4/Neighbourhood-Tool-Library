@@ -33,23 +33,39 @@ const ReservationsDashboard = () => {
       day: 'numeric',
     });
 
+  const isOverdue = (endDate) => {
+    const today = new Date();
+    return new Date(endDate) < today;
+  };
+
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-semibold mb-4">My Reservations</h2>
-      {reservations.map((r) => (
-        <div key={r.id} className="border p-2 mb-2 rounded shadow">
-          <p><strong>Tool ID:</strong> {r.tool_id}</p>
-          <p><strong>From:</strong> {formatDate(r.start_date)}</p>
-          <p><strong>To:</strong> {formatDate(r.end_date)}</p>
-          <p><strong>Status:</strong> {r.status}</p>
-          <button
-            className="mt-2 bg-red-500 text-white px-2 py-1 rounded"
-            onClick={() => cancelReservation(r.id)}
-          >
-            Cancel
-          </button>
-        </div>
-      ))}
+    <div className="container mt-4">
+      <h2 className="mb-4">My Reservations</h2>
+      {reservations.length === 0 ? (
+        <div className="alert alert-info">No reservations found.</div>
+      ) : (
+        reservations.map((r) => (
+          <div key={r.id} className="card mb-3">
+            <div className="card-body">
+              <h5 className="card-title">Tool ID: {r.tool_id}</h5>
+              <p className="card-text"><strong>From:</strong> {formatDate(r.start_date)}</p>
+              <p className="card-text">
+                <strong>To:</strong> {formatDate(r.end_date)}{' '}
+                {isOverdue(r.end_date) && (
+                  <span className="badge bg-danger ms-2">Overdue</span>
+                )}
+              </p>
+              <p className="card-text"><strong>Status:</strong> {r.status}</p>
+              <button
+                className="btn btn-danger"
+                onClick={() => cancelReservation(r.id)}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        ))
+      )}
     </div>
   );
 };
