@@ -97,6 +97,7 @@
   - 1. server - Application backend
   - 2. client - Application frontend
   - 3. db - isolated PostgreSql DB instance
+- ![Docker Setup](docs/images/docker_setup.png)
 - docker-compose down -v
 - docker-compose build
 - docker-compose up

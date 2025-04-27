@@ -26,13 +26,13 @@ const App = () => {
 
         {/* Protected Routes */}
         {/* <Route path="/dashboard" element={<ProtectedRoute component={Dashboard} />} /> */}
-        <Route path="/tools" element={<ProtectedRoute component={ToolCatalog} />} />
-        <Route path="/tools/:id" element={<ProtectedRoute component={ToolDetail} />} />
+        <Route path="/tools" element={<ToolCatalog />} />
+        <Route path="/tools/:id" element={<ToolDetail />} />
         {/* <Route path="/tools/:id/review" element={<ProtectedRoute component={ReviewSection} />} /> */}
         <Route path="/reservations" element={<ProtectedRoute component={ReservationsDashboard} />} />
         <Route path="/admin" element={<ProtectedRoute component={AdminPanel} />} />
         {/* Default Route */}
-        <Route path="/" element={<Navigate to="/auth/login" />} />
+        <Route path="/" element={<Navigate to="/tools" />} />
       </Routes>
       </Layout>
     </Router>
